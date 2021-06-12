@@ -21,6 +21,8 @@ Route::get('/app', function () {
     return view('app');
 });
 
+Route::get('/students', [App\Http\Controllers\StudentsController::class, 'index']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
