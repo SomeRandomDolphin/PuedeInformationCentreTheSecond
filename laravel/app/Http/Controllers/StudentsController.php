@@ -26,6 +26,28 @@ class StudentsController extends Controller
         return view('students/indextrash', ['siswa'=> $siswa]);
     }
 
+    public function create(Request $request)
+    {
+        $validatedData = $request->validate([
+            'fullname' => ['required', 'min:3'],
+            'dateofbirth' => ['required'],
+            'email' => ['required'],
+            'password' => ['required'],
+            'description' => ['required', 'max:500'],
+        ]);
+
+        $student = new Student;
+        $student->name = $request->fullname;
+        $student->birthdate = $request->dateofbirth;
+        $student->email = $request->email;
+        $student->password = bcrypt($request->password);
+        $student->short_description = $request->description;
+     
+        $student->save();
+
+        return redirect('students');
+    }
+
     public function edit($id)
     {
         $student = Student::find($id);

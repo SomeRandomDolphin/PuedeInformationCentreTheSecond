@@ -36,6 +36,7 @@
 </table>
 
 <a class="btn btn-primary" style="float: right; margin-left: 10px" href="{{ url('students/trash') }}" role="button">Go to trash</a>
+<a class="btn btn-primary" style="float: right" href="{{ url('students/add') }}" role="button">Add new student</a>
 {{ $siswa->links() }}
 
 @endsection

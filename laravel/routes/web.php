@@ -21,7 +21,13 @@ Route::get('/app', function () {
     return view('app');
 })->middleware('auth');
 
+Route::get('/students/add', function () {
+    return view('students/add');
+})->middleware('auth');
+
 Route::get('/students', [App\Http\Controllers\StudentsController::class, 'index'])->middleware('auth');
+
+Route::post('/students/add', [App\Http\Controllers\StudentsController::class, 'create'])->middleware('auth');
 
 Route::post('/students/edit/{id}', [App\Http\Controllers\StudentsController::class, 'edit'])->middleware('auth');
 
