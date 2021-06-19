@@ -19,13 +19,13 @@
     <td>{{$s->email}}</td>
     <td>{{$s->birthdate}}</td>
     <td>
-        <form action="{{ url('students/edit/' . $s->id) }}" method="post">
+        <form action="{{ url('students/trash/restore/' . $s->id) }}" method="post">
             @csrf
-            <button class="btn btn-primary" type="submit">Edit</button>
+            <button class="btn btn-primary" type="submit">Restore</button>
         </form>
     </td>
     <td>
-        <form action="{{ url('students/delete/' . $s->id) }}" method="post">
+        <form action="{{ url('students/trash/delete/' . $s->id) }}" method="post">
             @csrf
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>
@@ -35,7 +35,7 @@
 </tbody>
 </table>
 
-<a class="btn btn-primary" style="float: right; margin-left: 10px" href="{{ url('students/trash') }}" role="button">Go to trash</a>
+<a class="btn btn-primary" style="float: right" href="{{ url('students') }}" role="button">Go to student</a>
 {{ $siswa->links() }}
 
 @endsection
